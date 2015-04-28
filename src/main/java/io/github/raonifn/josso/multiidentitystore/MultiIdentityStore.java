@@ -11,23 +11,20 @@ import org.josso.gateway.identity.service.store.UserKey;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * @org.apache.xbean.XBean element="multi-indentity"
- * 
- */
 public class MultiIdentityStore implements IdentityStore {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(MultiIdentityStore.class);
 
 	private List<IdentityStore> internalStores;
 
+	public MultiIdentityStore(List<IdentityStore> internalStores) {
+		this.internalStores = internalStores;
+	}
+
 	public List<IdentityStore> getInternalStores() {
 		return internalStores;
 	}
 
-	/**
-	 * @org.apache.xbean.Property alias="identities"; nestedType"org.josso.gateway.identity.service.store.IdentityStore"
-	 */
 	public void setInternalStores(List<IdentityStore> internalStores) {
 		this.internalStores = internalStores;
 	}

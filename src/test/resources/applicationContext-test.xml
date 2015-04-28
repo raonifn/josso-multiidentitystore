@@ -1,19 +1,19 @@
-<s:beans xmlns:s="http://www.springframework.org/schema/beans"
-	xmlns:multi="urn:io:github:raonifn:josso"
-	xmlns:memory-istore="urn:org:josso:memory:identitystore"
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
-        urn:org:josso:memory:identitystore http://www.josso.org/schema/josso-memory-identitystore.xsd
-        urn:io:github:raonifn:josso http://raonifn.github.io/josso-multiidentitystore/josso-multiidentitystore.xsd
         ">
 
-	<memory-istore:memory-store id="josso-identity-store1" />
-	<memory-istore:memory-store id="josso-identity-store2" />
+	<bean class="org.josso.gateway.identity.service.store.MemoryIdentityStore"
+		id="m1" />
 
-	<multi:multi-indentity>
-		<multi-istore:identities>
-			<s:ref bean="josso-identity-store1" />
-			<s:ref bean="josso-identity-store2" />
-		</multi-istore:identities>
-	</multi:multi-indentity>
-</s:beans>
+	<bean class="io.github.raonifn.josso.multiidentitystore.MultiIdentityStore"
+		id="bla">
+		<constructor-arg>
+			<list>
+				<ref bean="m1" />
+			</list>
+		</constructor-arg>
+	</bean>
+</beans>
