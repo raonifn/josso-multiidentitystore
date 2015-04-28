@@ -1,1 +1,2 @@
-= JOSSO Multi Identity Store =
+JOSSO Multi Identity Store
+========
