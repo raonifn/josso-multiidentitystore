@@ -25,6 +25,7 @@
 
 	<properties>
 		<slf4j.version>1.6.1</slf4j.version>
+		<josso.version>1.8.9</josso.version>
 	</properties>
 
 	<dependencies>
@@ -47,12 +48,16 @@
 		</dependency>
 		<dependency>
 			<groupId>org.josso</groupId>
-			<artifactId>josso-db-identitystore</artifactId>
-			<version>1.8.9</version>
+			<artifactId>josso-memory-identitystore</artifactId>
+			<version>${josso.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-core</artifactId>
+			<version>${josso.version}</version>
 		</dependency>
 
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -65,12 +70,31 @@
 				</configuration>
 			</plugin>
 			<plugin>
+				<groupId>org.apache.xbean</groupId>
+				<artifactId>maven-xbean-plugin</artifactId>
+				<executions>
+					<execution>
+						<configuration>
+							<namespace>urn:io:github:raonifn:josso</namespace>
+						</configuration>
+						<goals>
+							<goal>mapping</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
 					<source>1.5</source>
 					<target>1.5</target>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.xbean</groupId>
+				<artifactId>maven-xbean-plugin</artifactId>
+				<version>4.2</version>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -102,22 +126,22 @@
 		</pluginManagement>
 	</build>
 
-  <repositories>
-        <repository>
-            <id>josso-m2-repo</id>
-            <name>JOSSO Maven2 Repository</name>
-            <url>http://repository.josso.org/m2-release-repository</url>
+	<repositories>
+		<repository>
+			<id>josso-m2-repo</id>
+			<name>JOSSO Maven2 Repository</name>
+			<url>http://repository.josso.org/m2-release-repository</url>
 
-            <releases>
-                <checksumPolicy>fail</checksumPolicy>
-                <enabled>true</enabled>
-            </releases>
+			<releases>
+				<checksumPolicy>fail</checksumPolicy>
+				<enabled>true</enabled>
+			</releases>
 
-            <snapshots>
-                <checksumPolicy>fail</checksumPolicy>
-                <enabled>false</enabled>
-            </snapshots>
+			<snapshots>
+				<checksumPolicy>fail</checksumPolicy>
+				<enabled>false</enabled>
+			</snapshots>
 
-        </repository>
-  </repositories>
+		</repository>
+	</repositories>
 </project>
