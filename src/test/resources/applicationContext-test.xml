@@ -26,7 +26,7 @@
 	</bean>
 
 	<bean class="io.github.raonifn.josso.multiidentitystore.MultiIdentityStore"
-		id="bla">
+		id="multi">
 		<constructor-arg>
 			<list>
 				<ref bean="m1" />

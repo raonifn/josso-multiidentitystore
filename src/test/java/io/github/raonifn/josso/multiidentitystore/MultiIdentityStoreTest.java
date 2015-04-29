@@ -18,7 +18,7 @@ public class MultiIdentityStoreTest {
 	@Before
 	public void before() {
 		ApplicationContext context = new ClassPathXmlApplicationContext("/applicationContext-test.xml");
-		bean = (MultiIdentityStore) context.getBean("bla", MultiIdentityStore.class);
+		bean = (MultiIdentityStore) context.getBean("multi", MultiIdentityStore.class);
 	}
 
 	@Test
@@ -28,12 +28,9 @@ public class MultiIdentityStoreTest {
 
 	@Test
 	public void testUserExists() throws SSOIdentityException {
-		ApplicationContext context = new ClassPathXmlApplicationContext("/applicationContext-test.xml");
-
-		MultiIdentityStore bean = (MultiIdentityStore) context.getBean("bla", MultiIdentityStore.class);
-
 		assertTrue(bean.userExists(new SimpleUserKey("user1")));
 		assertTrue(bean.userExists(new SimpleUserKey("user2")));
 		assertFalse(bean.userExists(new SimpleUserKey("user3")));
 	}
+
 }
