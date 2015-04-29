@@ -59,11 +59,11 @@ public class MultiIdentityStore extends AbstractStore {
 	public Credential[] loadCredentials(CredentialKey credentialKey, CredentialProvider provider) throws SSOIdentityException {
 		for (CredentialStore store : internalStores) {
 			Credential[] ret = store.loadCredentials(credentialKey, provider);
-			if (ret != null) {
+			if (ret != null && ret.length > 0) {
 				return ret;
 			}
 		}
-		return null;
+		return new Credential[0];
 	}
 
 	public String loadUID(CredentialKey credentialKey, CredentialProvider provider) throws SSOIdentityException {
