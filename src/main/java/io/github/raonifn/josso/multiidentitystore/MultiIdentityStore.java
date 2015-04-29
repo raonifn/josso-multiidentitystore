@@ -36,11 +36,11 @@ public class MultiIdentityStore extends AbstractStore {
 	public BaseRole[] findRolesByUserKey(UserKey userKey) throws SSOIdentityException {
 		for (IdentityStore store : internalStores) {
 			BaseRole[] ret = store.findRolesByUserKey(userKey);
-			if (ret != null) {
+			if (ret != null && ret.length > 0) {
 				return ret;
 			}
 		}
-		return null;
+		return new BaseRole[0];
 	}
 
 	public BaseUser loadUser(UserKey userKey) throws NoSuchUserException, SSOIdentityException {

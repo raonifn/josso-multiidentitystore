@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 
 <josso-users>
-    <users>
-        <user>
-            <name>user1</name>
-            <!-- Optionally, define some properties for this user -->
-            <properties>
-                <property>
-                    <name>user.name</name>
-                    <value>User 1 Name</value>
-                </property>
-                <property>
-                    <name>user.lastName</name>
-                    <value>User 1 Last Name</value>
-                </property>
-                <property>
-                    <name>user.registrationDate</name>
-                    <value>2004/09/11</value>
-                </property>
-                <property>
-                    <name>email</name>
-                    <value>user1@josso.org</value>
-                </property>
-            </properties>
-            <!-- Optional comma sepparated set of roles, must be defined below -->
-            <roles>role1 , role2</roles>
-        </user>
-        
-    </users>
+	<users>
+		<user>
+			<name>user1</name>
 
-    <roles>
-        <role>
-            <name>role1</name>
-        </role>
-        <role>
-            <name>role2</name>
-        </role>
+			<properties>
+				<property>
+					<name>user.name</name>
+					<value>User 1 Name</value>
+				</property>
+				<property>
+					<name>user.lastName</name>
+					<value>User 1 Last Name</value>
+				</property>
+				<property>
+					<name>user.registrationDate</name>
+					<value>2004/09/11</value>
+				</property>
+				<property>
+					<name>email</name>
+					<value>user1@josso.org</value>
+				</property>
+			</properties>
 
-    </roles>
+			<roles>role1 , role2</roles>
+		</user>
+
+	</users>
+
+	<roles>
+		<role>
+			<name>role1</name>
+		</role>
+		<role>
+			<name>role2</name>
+		</role>
+
+	</roles>
 </josso-users>

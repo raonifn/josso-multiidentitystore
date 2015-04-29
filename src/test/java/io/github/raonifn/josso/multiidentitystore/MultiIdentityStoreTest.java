@@ -4,7 +4,12 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.util.Arrays;
+import java.util.List;
+
+import org.josso.gateway.identity.exceptions.NoSuchUserException;
 import org.josso.gateway.identity.exceptions.SSOIdentityException;
+import org.josso.gateway.identity.service.BaseRole;
 import org.josso.gateway.identity.service.store.SimpleUserKey;
 import org.junit.Before;
 import org.junit.Test;
@@ -33,4 +38,36 @@ public class MultiIdentityStoreTest {
 		assertFalse(bean.userExists(new SimpleUserKey("user3")));
 	}
 
+	@Test
+	public void testLoadUser() throws SSOIdentityException {
+		assertEquals("user1", bean.loadUser(new SimpleUserKey("user1")).getName());
+		assertEquals("user2", bean.loadUser(new SimpleUserKey("user2")).getName());
+	}
+
+	@Test(expected = NoSuchUserException.class)
+	public void testLoadUserThatDontExists() throws SSOIdentityException {
+		bean.loadUser(new SimpleUserKey("user3"));
+	}
+
+	@Test
+	public void testFindRolesByUserKey() throws SSOIdentityException {
+		testFindRolesByUserKey("user1", "role1", "role2");
+		testFindRolesByUserKey("user2", "role2");
+	}
+
+	private void testFindRolesByUserKey(String userId, String... expectedRoles) throws SSOIdentityException {
+		SimpleUserKey user = new SimpleUserKey(userId);
+		bean.loadUser(user);
+		BaseRole[] roles = bean.findRolesByUserKey(user);
+		assertRoles(roles, expectedRoles);
+	}
+
+	private void assertRoles(BaseRole[] actual, String... expected) {
+		assertEquals(expected.length, actual.length);
+
+		List<String> roles = Arrays.asList(expected);
+		for (BaseRole role : actual) {
+			assertTrue(roles.contains(role.getName()));
+		}
+	}
 }
