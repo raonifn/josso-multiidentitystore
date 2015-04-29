@@ -24,29 +24,24 @@
 
 
 	<properties>
-		<slf4j.version>1.6.1</slf4j.version>
 		<josso.version>1.8.9</josso.version>
 		<spring.version>2.5.5</spring.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>${slf4j.version}</version>
-		</dependency>
-		<dependency>
 			<groupId>org.josso</groupId>
 			<artifactId>josso-core</artifactId>
 			<version>${josso.version}</version>
+			<scope>provided</scope>
 		</dependency>
 
 
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<scope>test</scope>
 			<version>4.8.1</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -61,12 +56,6 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-jdk14</artifactId>
-			<version>${slf4j.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
 			<groupId>org.josso</groupId>
 			<artifactId>josso-memory-identitystore</artifactId>
 			<scope>test</scope>
@@ -78,6 +67,7 @@
 			<scope>test</scope>
 			<version>${josso.version}</version>
 		</dependency>
+		
 	</dependencies>
 	<build>
 		<plugins>
