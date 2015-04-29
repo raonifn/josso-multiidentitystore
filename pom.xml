@@ -72,6 +72,12 @@
 			<scope>test</scope>
 			<version>${josso.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.josso</groupId>
+			<artifactId>josso-basic-authscheme</artifactId>
+			<scope>test</scope>
+			<version>${josso.version}</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>

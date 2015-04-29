@@ -7,11 +7,15 @@ import static org.junit.Assert.assertTrue;
 import java.util.Arrays;
 import java.util.List;
 
+import org.josso.auth.Credential;
+import org.josso.auth.scheme.UsernameCredential;
+import org.josso.auth.scheme.UsernamePasswordCredentialProvider;
 import org.josso.gateway.identity.exceptions.NoSuchUserException;
 import org.josso.gateway.identity.exceptions.SSOIdentityException;
 import org.josso.gateway.identity.service.BaseRole;
 import org.josso.gateway.identity.service.store.SimpleUserKey;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -53,6 +57,17 @@ public class MultiIdentityStoreTest {
 	public void testFindRolesByUserKey() throws SSOIdentityException {
 		testFindRolesByUserKey("user1", "role1", "role2");
 		testFindRolesByUserKey("user2", "role2");
+	}
+
+	@Test
+	@Ignore
+	public void test() throws SSOIdentityException {
+		UsernamePasswordCredentialProvider provider = new UsernamePasswordCredentialProvider();
+		SimpleUserKey user = new SimpleUserKey("user2");
+		bean.loadUser(user);
+		bean.loadUID(user, provider);
+		Credential[] credentials = bean.loadCredentials(user, provider);
+		System.out.println(Arrays.asList(credentials));
 	}
 
 	private void testFindRolesByUserKey(String userId, String... expectedRoles) throws SSOIdentityException {
