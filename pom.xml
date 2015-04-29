@@ -24,7 +24,7 @@
 
 
 	<properties>
-		<josso.version>1.8.9</josso.version>
+		<josso.version>1.8.8</josso.version>
 		<spring.version>2.5.5</spring.version>
 	</properties>
 
