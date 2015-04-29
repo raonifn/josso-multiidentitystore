@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<josso-users>
+	<users>
+		<user>
+			<name>user2</name>
+			<properties>
+				<property>
+					<name>user.name</name>
+					<value>User 2 Name</value>
+				</property>
+				<property>
+					<name>user.lastName</name>
+					<value>User 2 Last Name</value>
+				</property>
+				<property>
+					<name>user.registrationDate</name>
+					<value>2005/09/11</value>
+				</property>
+				<property>
+					<name>email</name>
+					<value>user2@josso.org</value>
+				</property>
+			</properties>
+
+			<roles>role2</roles>
+		</user>
+
+
+		<roles>
+			<role>
+				<name>role2</name>
+			</role>
+
+		</roles>
+	</users>
+</josso-users>

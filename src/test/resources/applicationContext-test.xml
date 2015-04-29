@@ -6,13 +6,31 @@
         ">
 
 	<bean class="org.josso.gateway.identity.service.store.MemoryIdentityStore"
-		id="m1" />
+		id="m1">
+		<property name="credentialsFileName">
+			<value>josso-credentials.xml</value>
+		</property>
+		<property name="usersFileName">
+			<value>josso-users.xml</value>
+		</property>
+	</bean>
+
+	<bean class="org.josso.gateway.identity.service.store.MemoryIdentityStore"
+		id="m2">
+		<property name="credentialsFileName">
+			<value>josso-credentials2.xml</value>
+		</property>
+		<property name="usersFileName">
+			<value>josso-users2.xml</value>
+		</property>
+	</bean>
 
 	<bean class="io.github.raonifn.josso.multiidentitystore.MultiIdentityStore"
 		id="bla">
 		<constructor-arg>
 			<list>
 				<ref bean="m1" />
+				<ref bean="m2" />
 			</list>
 		</constructor-arg>
 	</bean>

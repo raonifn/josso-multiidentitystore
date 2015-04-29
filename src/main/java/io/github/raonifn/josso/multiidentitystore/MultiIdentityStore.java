@@ -17,6 +17,9 @@ public class MultiIdentityStore implements IdentityStore {
 
 	private List<IdentityStore> internalStores;
 
+	public MultiIdentityStore() {
+	}
+
 	public MultiIdentityStore(List<IdentityStore> internalStores) {
 		this.internalStores = internalStores;
 	}
