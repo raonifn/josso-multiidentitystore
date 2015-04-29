@@ -14,7 +14,7 @@ import org.josso.gateway.identity.service.store.AbstractStore;
 import org.josso.gateway.identity.service.store.IdentityStore;
 import org.josso.gateway.identity.service.store.UserKey;
 
-public class MultiIdentityStore extends AbstractStore {
+public class MultiIdentityStore implements IdentityStore, CredentialStore {
 
 	private List<AbstractStore> internalStores;
 
@@ -74,6 +74,14 @@ public class MultiIdentityStore extends AbstractStore {
 			}
 		}
 		return null;
+	}
+
+	public boolean userExists(UserKey key) throws SSOIdentityException {
+		try {
+			return loadUser(key) != null;
+		} catch (NoSuchUserException e) {
+			return false;
+		}
 	}
 
 }
