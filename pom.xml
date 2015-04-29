@@ -4,7 +4,7 @@
 
 	<groupId>io.github.raonifn</groupId>
 	<artifactId>josso-multiidentitystore</artifactId>
-	<version>0.4.0</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>CEA - JOSSO - Multi Identity Store</name>
 
